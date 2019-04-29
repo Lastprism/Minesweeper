@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mineweeper</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="App">
+		<center>
+		<button v-on:click="start" style="width: 150px;height: 30px">开始游戏</button>
+		<button v-on:click="change_mode" style="width: 150px;height: 30px">{{mode_name[mode]}}</button>
+		<br>
+		<br>
+		<!--地雷数：<input v-model="mine_num">-->
+		尺寸：{{width[rank]}}*{{height[rank]}} 地雷数:{{default_mine_num[rank]}}
+		<select v-model="rank">
+			<option value = "0">初级难度</option>
+  			<option value = "1">中级难度</option>
+  			<option value = "2">高级难度</option>
+		</select>
+		标记雷数:{{flag_size}} 排空数:{{empty_size}}
+		<br>
+		<br>
+		<table v-html="graph" border="1" v-on:click="leftClick($event)"></table>
+		</center>
+	</div>
+	<script src="./js/Mineweeper.js"></script>
+</body>
+</html>
