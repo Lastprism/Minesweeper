@@ -203,8 +203,10 @@ var vm = new Vue({
 				return false
 			}
 			for(var i = 0; i < this.flag_size; i++){
-				if(this.flag[this.mine_array[i].x][this.mine_array[i].y] != this.lable)
+				//console.log(this.mine_array[i].x, this.mine_array[i].y, this.flag[this.mine_array[i].x][this.mine_array[i].y])
+				if(this.flag[this.mine_array[i].x][this.mine_array[i].y] != this.lable_color){
 					return false
+				}
 			}
 			return true
 		},
